@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Leaf renders properly 1`] = `
+<div
+  style={
+    Object {
+      "paddingLeft": undefined,
+    }
+  }
+>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+</div>
+`;

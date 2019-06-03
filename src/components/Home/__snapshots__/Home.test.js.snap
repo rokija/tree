@@ -4,13 +4,13 @@ exports[`Home renders properly 1`] = `
 <div
   className="Home"
 >
-  <input
-    onChange={[Function]}
-  />
-  <button
-    onClick={[Function]}
+  <div
+    className="Home__tree"
   >
-    Add
-  </button>
+    <h3>
+      Tree
+    </h3>
+    <Tree />
+  </div>
 </div>
 `;

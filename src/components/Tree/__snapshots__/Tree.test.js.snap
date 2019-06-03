@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tree renders properly 1`] = `
+<div>
+  <div
+    key="leaf-0"
+  >
+    <Leaf
+      index={0}
+      onOpenInput={[Function]}
+      paddingLeft={10}
+      value="root leaf"
+    />
+  </div>
+</div>
+`;
