@@ -6,7 +6,13 @@ const rootTree = {
   name: 'Lorem',
   id: 'root',
   children: [
-    { name: 'Ipsum', id: 'root-child', children: [] },
+    {
+      name: 'Ipsum',
+      id: 'root-child',
+      children: [
+        { name: 'Sit', id: 'root-child-child', children: [] },
+      ],
+    },
     { name: 'Dolor', id: 'root-child-2', children: [] },
   ],
 }
@@ -19,18 +25,33 @@ class Tree extends Component {
       selectedId: null,
     }
 
-  renderTree = leaf => (
-    <li key={leaf.id} data-id={leaf.id}>
-      {leaf.name}
-      {!!leaf.children.length
-        && (
-          <ul>
-            {leaf.children.map(child => this.renderTree(child))}
-          </ul>
-        )
+  renderTree = (leaf) => {
+    const DEEPER = 'DEEPER'
+    const SHALLOWER = 'SHALLOWER'
+    const nodes = [leaf]
+    const markup = []
+    let level = 0
+
+    while (nodes.length) {
+      const current = nodes.shift()
+
+      if (current === DEEPER) {
+        level += 1
+      } else if (current === SHALLOWER) {
+        level -= 1
+      } else {
+        markup.push((
+          <div data-id={current.id} style={{ paddingLeft: level * 10 }}>
+            {current.name}
+          </div>
+        ))
+
+        nodes.unshift(DEEPER, ...current.children, SHALLOWER)
       }
-    </li>
-  )
+    }
+
+    return markup
+  }
 
   addLeaf = (leaf, id) => {
     const { tree } = this.state
@@ -56,7 +77,6 @@ class Tree extends Component {
     event.persist()
     this.setState(prevState => ({ showInput: !prevState.showInput, selectedId: event.target.dataset.id }))
   }
-
 
   render() {
     const {
