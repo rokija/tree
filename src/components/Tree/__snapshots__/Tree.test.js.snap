@@ -1,16 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tree renders properly 1`] = `
-<div>
-  <div
-    key="leaf-0"
+<div
+  className="Tree"
+>
+  <ul
+    onClick={[Function]}
   >
-    <Leaf
-      index={0}
-      onOpenInput={[Function]}
-      paddingLeft={10}
-      value="root leaf"
-    />
-  </div>
+    <li
+      data-id="root"
+      key="root"
+    >
+      Lorem
+      <ul>
+        <li
+          data-id="root-child"
+          key="root-child"
+        >
+          Ipsum
+        </li>
+        <li
+          data-id="root-child-2"
+          key="root-child-2"
+        >
+          Dolor
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 `;
